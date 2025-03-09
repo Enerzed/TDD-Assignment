@@ -101,3 +101,22 @@ protected:
 	fs::path test_folder;
 	fs::path test_file_path;
 };
+
+TEST_F(FileManagerTest, EncryptDecryptAllFiles)
+{
+	FileManager file_manager(test_folder.string());
+
+	file_manager.EncryptAllFiles();
+
+	std::ifstream encrypted_file(test_file_path);
+	std::string encrypted_content((std::istreambuf_iterator<char>(encrypted_file)), std::istreambuf_iterator<char>());
+	encrypted_file.close();
+	EXPECT_NE(encrypted_content, "hello world!");
+
+	file_manager.DecryptAllFiles();
+
+	std::ifstream decrypted_file(test_file_path);
+	std::string decrypted_content((std::istreambuf_iterator<char>(decrypted_file)), std::istreambuf_iterator<char>());
+	decrypted_file.close();
+	EXPECT_EQ(decrypted_content, "hello world!");
+}
