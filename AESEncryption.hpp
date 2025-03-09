@@ -15,9 +15,11 @@ private:
 	std::string key, iv;
 public:
 	AESEncryption();
-	// todo encrypt/decrypt methods 
 	
 	void GenerateKeyAndIV();
+
+	std::string Encrypt(std::string);
+	std::string Decrypt(std::string);
 
 	// todo set methods
 
