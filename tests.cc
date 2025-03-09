@@ -48,3 +48,13 @@ TEST(TestsAES, ConstructorTest)
 	AESEncryption* aes = new AESEncryption();
 	EXPECT_NE(aes, nullptr);
 }
+
+TEST(TestsAES, GenerateKeyAndIV)
+{
+	AESEncryption* aes = new AESEncryption();
+
+	aes->GenerateKeyAndIV();
+
+	EXPECT_NE(aes->GetKey(), "");
+	EXPECT_NE(aes->GetIV(), "");
+}
