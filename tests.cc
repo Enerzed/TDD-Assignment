@@ -2,6 +2,9 @@
 
 #include "RSAEncryption.hpp"
 #include "RSAEncryption.cpp"
+#include "AESEncryption.hpp"
+#include "AESEncryption.cpp"
+
 
 /*
 * RSA tests
@@ -33,4 +36,15 @@ TEST(TestsRSA, EncryptDecryptTest)
 	std::string decrypted = rsa->Decrypt(encrypted);
 
 	EXPECT_EQ(message, decrypted);
+}
+
+
+/*
+* AES tests
+*/
+
+TEST(TestsAES, ConstructorTest)
+{
+	AES* aes = new AES();
+	EXPECT_NE(aes, nullptr);
 }
