@@ -16,10 +16,12 @@ private:
 	
 public:
 	RSAEncryption();
-	
+
 	void GenerateKeys();
+
+	std::string Encrypt(std::string);
+	std::string Decrypt(std::string);
 
 	std::string GetPublicKey();
 	std::string GetPrivateKey();
-	// todo add encrypt/decrypt methods
 };
