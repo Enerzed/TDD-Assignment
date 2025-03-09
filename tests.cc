@@ -6,6 +6,8 @@
 #include "RSAEncryption.cpp"
 #include "AESEncryption.hpp"
 #include "AESEncryption.cpp"
+#include "FileManager.hpp"
+#include "FileManager.cpp"
 
 
 /*
