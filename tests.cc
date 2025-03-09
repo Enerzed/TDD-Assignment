@@ -45,6 +45,6 @@ TEST(TestsRSA, EncryptDecryptTest)
 
 TEST(TestsAES, ConstructorTest)
 {
-	AES* aes = new AES();
+	AESEncryption* aes = new AESEncryption();
 	EXPECT_NE(aes, nullptr);
 }
