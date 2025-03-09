@@ -19,8 +19,8 @@ TEST(TestsRSA, GenerateKeysTest)
 
 	rsa->GenerateKeys();
 
-	EXPECT_NE(rsa->GetPublicKey(), nullptr);
-	EXPECT_NE(rsa->GetPrivateKey(), nullptr);
+	EXPECT_NE(rsa->GetPublicKey(), "");
+	EXPECT_NE(rsa->GetPrivateKey(), "");
 }
 
 TEST(TestsRSA, EncryptDecryptTest)
