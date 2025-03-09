@@ -1,4 +1,6 @@
 #include <gtest/gtest.h>
+#include <fstream>
+#include <filesystem>
 
 #include "RSAEncryption.hpp"
 #include "RSAEncryption.cpp"
@@ -70,3 +72,32 @@ TEST(TestsAES, EncryptDecryptTest)
 
 	EXPECT_EQ(message, decrypted);
 }
+
+/*
+* FileManager tests
+*/
+
+namespace fs = std::filesystem;
+
+class FileManagerTest : public::testing::Test
+{
+protected:
+	void SetUp() override
+	{
+		test_folder = fs::temp_directory_path() / "FileManagerTest";
+		fs::create_directory(test_folder);
+
+		test_file_path = test_folder / "test.txt";
+		std::ofstream test_file(test_file_path);
+		test_file << "hello world!";
+		test_file.close();
+	}
+
+	void TearDown() override
+	{
+		fs::remove_all(test_folder);
+	}
+
+	fs::path test_folder;
+	fs::path test_file_path;
+};
