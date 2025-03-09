@@ -1,7 +1,10 @@
-#include "RSAEncryption.hpp"
+#include "FileManager.hpp"
 
 
 int main()
 {
-	return 0;
+	FileManager file_manager("C:\\Users\\laske\\source\\repos\\TOPO132\\folder_with_files\\");
+	file_manager.EncryptAllFiles();
+	getchar();
+	file_manager.DecryptAllFiles();
 }
