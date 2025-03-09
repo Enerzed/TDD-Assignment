@@ -17,8 +17,8 @@ TEST(TestsRSA, GenerateKeysTest)
 {
 	RSAEncryption* rsa = new RSAEncryption();
 
-	rsa.GenerateKeys();
+	rsa->GenerateKeys();
 
-	EXPECT_NE(rsa.GetPublicKey(), nullptr);
-	EXPECT_NE(rsa.GetPrivateKey(), nullptr);
+	EXPECT_NE(rsa->GetPublicKey(), nullptr);
+	EXPECT_NE(rsa->GetPrivateKey(), nullptr);
 }
