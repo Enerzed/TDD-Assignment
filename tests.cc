@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 
+#include "RSAEncryption.hpp"
+#include "RSAEncryption.cpp"
 
 /*
 * RSA tests
