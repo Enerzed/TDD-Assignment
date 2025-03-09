@@ -58,3 +58,15 @@ TEST(TestsAES, GenerateKeyAndIV)
 	EXPECT_NE(aes->GetKey(), "");
 	EXPECT_NE(aes->GetIV(), "");
 }
+
+TEST(TestsAES, EncryptDecryptTest)
+{
+	AESEncryption* aes = new AESEncryption();
+	aes->GenerateKeyAndIV();
+	std::string message = "Hello World!";
+
+	std::string encrypted = aes->Encrypt(message);
+	std::string decrypted = aes->Decrypt(encrypted);
+
+	EXPECT_EQ(message, decrypted);
+}
