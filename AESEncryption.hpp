@@ -1,13 +1,26 @@
 #pragma once
 
+#include <iostream>
+
+#include <openssl/evp.h>
+#include <openssl/aes.h>
+#include <openssl/pem.h>
+#include <openssl/rand.h>
+
 
 class AESEncryption
 {
 private:
-	// todo key, iv and evp cipher
+	const EVP_CIPHER* cipher;
+	std::string key, iv;
 public:
 	AESEncryption();
 	// todo encrypt/decrypt methods 
-	// todo generate key and iv
-	// todo set get methods
+	
+	void GenerateKeyAndIV();
+
+	// todo set methods
+
+	std::string GetKey();
+	std::string GetIV();
 };
